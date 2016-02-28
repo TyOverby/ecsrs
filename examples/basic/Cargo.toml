@@ -1,0 +1,11 @@
+[package]
+name = "basic"
+version = "0.1.0"
+authors = ["Ty Overby <ty@pre-alpha.com>"]
+build = "build.rs"
+
+[build-dependencies.ecsrs]
+path = "../../"
+
+[build-dependencies]
+latin = "^0.1.2"

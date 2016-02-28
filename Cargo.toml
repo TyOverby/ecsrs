@@ -1,0 +1,6 @@
+[package]
+name = "ecsrs"
+version = "0.1.0"
+authors = ["Ty Overby <ty@pre-alpha.com>"]
+
+[dependencies]
