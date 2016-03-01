@@ -5,7 +5,10 @@ authors = ["Ty Overby <ty@pre-alpha.com>"]
 build = "build.rs"
 
 [build-dependencies.ecsrs]
-path = "../../"
+path = "../../ecsrs"
+
+[build-dependencies.ecsrs-build]
+path = "../../ecsrs-build"
 
 [build-dependencies]
-latin = "^0.1.2"
+latin = "^0.1.3"

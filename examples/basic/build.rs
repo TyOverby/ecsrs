@@ -1,11 +1,18 @@
-extern crate ecsrs;
+extern crate ecsrs_build;
 extern crate latin;
 
-use ecsrs::*;
+use ecsrs_build::*;
 
 pub fn main() {
     let mut world = WorldBuilder::new();
-    world.add_component("::Position");
-    world.add_component("::Velocity");
+    let position = world.add_component("::Position");
+    let velocity = world.add_component("::Velocity");
+
+    world.add_system(
+        System::new("::MovementSystem")
+        .with_component(position)
+        .with_component(velocity));
+   
+
     latin::file::write("./src/ecs.rs", world.render()).unwrap()
 }
