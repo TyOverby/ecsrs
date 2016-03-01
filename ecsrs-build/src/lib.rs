@@ -43,6 +43,7 @@ impl WorldBuilder {
         out.push_str("#![allow(non_snake_case)]\n");
         out.push_str("use std::cell::UnsafeCell;\n");
         out.push_str("use std::marker::Sync;\n");
+        out.push_str("use ecsrs::component_container::ComponentContainer;\n");
 
         // World struct
         out.push_str(r#"
@@ -51,10 +52,18 @@ pub struct World {
 }
 "#);
 
+        // Entity struct
+        out.push_str(r#"
+pub struct Entity {
+    id: usize
+}
+"#);
+
+
         // Component store struct
         out.push_str("\nstruct ComponentStore {\n");
         for component in self.components.iter() {
-            out.push_str(&format!("    {}Coll: UnsafeCell<Vec<{}>>,\n", component.name(), component.path()));
+            out.push_str(&format!("    {}Coll: UnsafeCell<ComponentContainer<{}>>,\n", component.name(), component.path()));
         }
         out.push_str("}\n");
         out.push_str("\nunsafe impl Sync for ComponentStore {}\n");

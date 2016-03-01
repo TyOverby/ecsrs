@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["Ty Overby <ty@pre-alpha.com>"]
 build = "build.rs"
 
-[build-dependencies.ecsrs]
+[dependencies.ecsrs]
 path = "../../ecsrs"
 
 [build-dependencies.ecsrs-build]

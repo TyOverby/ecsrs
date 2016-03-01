@@ -1,4 +1,7 @@
-#![allow(dead_code)]
+#![allow(dead_code, unused_imports)]
+
+extern crate ecsrs;
+
 mod ecs;
 
 struct Position(f32, f32);
